@@ -1,15 +1,54 @@
-# README
+# Fire Detection Backend
+## Using Tensorflow.js Model API with Node.js and Express.js
 
-This is the [Express](https://expressjs.com) [Hello world](https://expressjs.com/en/starter/hello-world.html) example on [Render](https://render.com).
+This project is a Node.js/Express.js application that serves as an API for a Tensorflow.js model. It allows you to make predictions using the Tensorflow.js model via HTTP requests. This README.md file will guide you through setting up and using the API.
 
-The app in this repo is deployed at [https://express.onrender.com](https://express.onrender.com).
+## Getting Started
 
-## Deployment
+Follow these steps to set up and run the project:
 
-See https://render.com/docs/deploy-node-express-app or follow the steps below:
+1. **Clone the Repository:**
 
-Create a new web service with the following values:
-  * Build Command: `yarn`
-  * Start Command: `node app.js`
+   ```bash
+   git clone https://github.dev/PreethamSub/FireDet/
+   cd FireDet
+   ```
 
-That's it! Your web service will be live on your Render URL as soon as the build finishes.
+2. **Install the Dependencies:**
+
+    ```bash
+    npm install
+    ```
+
+3. **Start the server:**
+
+    ```bash
+    npm start
+    ```
+    The server will start running at ```http://localhost:5000```.
+
+## API Endpoints
+The following endpoints are available for making predictions:
+
+GET /api/latitude/logitude/zoom: Send a GET request with input data of a satellite latitude, logitude and zoom factor to get predictions from the Tensorflow.js model.
+
+Example Request:
+
+  ```bash
+  cURL -X GET /api/13.453/14.23/10/
+  ```
+
+Example Response:
+
+  ```bash
+  {
+    "data": {
+      "0": 0.795423823595047,
+      "1": 0.304576206207275
+    }
+  }
+  ```
+  Where ```"0"``` represents the class ```no fire``` and ```"1"``` represents the class ```fire```
+
+## Model Loading
+Make sure to place your Tensorflow.js model files in the ```./jsmodel.tfjs``` directory.
