@@ -19,7 +19,7 @@ app.get("/api/:lat/:lon/:zoom", async (req, res) => {
 
   //downloading satellite image
   const { lat, lon, zoom } = req.params;
-  const imageUrl = `https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial/${lat}%2C${lon}/${zoom}?mapSize=500%2C550&format=jpeg&key=${api_key}`;
+  const imageUrl = `https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial/${lat}%2C${lon}/${zoom}?mapSize=224%2C224&format=jpeg&key=${api_key}`;
   const imagePth = "./pic.jpeg";
   
   console.log("Downloading satellite image:");
