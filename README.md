@@ -35,7 +35,7 @@ GET /api/latitude/logitude/zoom: Send a GET request with input data of a satelli
 Example Request:
 
   ```bash
-  cURL -X GET /api/13.453/14.23/10/
+  cURL -X GET [/api/13.453/14.23/10/](https://firedet-production.up.railway.app/api/13.2989/14.4989/19)
   ```
 
 Example Response:
@@ -52,3 +52,6 @@ Example Response:
 
 ## Model Loading
 Make sure to place your Tensorflow.js model files in the ```./jsmodel.tfjs``` directory.
+
+## Live Demo
+The API server app is currently hosted on [Railway](https://railway.app/). The web app API endpoint is live [here](https://firedet-production.up.railway.app/api/13.2989/14.4989/19).
