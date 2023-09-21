@@ -1,12 +1,14 @@
 const express = require("express");
+const cors = require('cors');
 const fs = require("fs");
 const client = require("https");
 const request = require("request");
 const tf = require("@tensorflow/tfjs-node");
 
 const app = express();
+app.use(cors());
 
-const model_url = "./jsmodel.tfjs/model.json"; //path to the model
+const model_url = "file://jsmodel.tfjs/model.json"; //path to the model
 const api_key = "Agv3yWf-P4aPelrHvZZfvISIRN2zWqCp885IYh2H_HnUpAjvzOhOXJRPiLUef4Gl"; //Bing Maps API key
 
 app.get("/api/:lat/:lon/:zoom", async (req, res) => {
