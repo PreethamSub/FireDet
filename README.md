@@ -43,12 +43,12 @@ Example Response:
   ```bash
   {
     "data": {
-      "0": 0.795423823595047,
-      "1": 0.304576206207275
+      "0": 0.395423823595047,
+      "1": 0.704576206207275
     }
   }
   ```
-  Where ```"0"``` represents the class ```no fire``` and ```"1"``` represents the class ```fire```
+  Where ```"0"``` represents the class ```fire``` and ```"1"``` represents the class ```no fire```
 
 ## Model Loading
 Make sure to place your Tensorflow.js model files in the ```./jsmodel.tfjs``` directory.
