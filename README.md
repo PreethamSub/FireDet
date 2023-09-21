@@ -35,7 +35,7 @@ GET /api/latitude/logitude/zoom: Send a GET request with input data of a satelli
 Example Request:
 
   ```bash
-  cURL -X GET [/api/13.453/14.23/10/](https://firedet-production.up.railway.app/api/13.2989/14.4989/19)
+  cURL -X GET /api/13.2989/14.4989/19
   ```
 
 Example Response:
