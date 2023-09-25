@@ -20,7 +20,7 @@ const api_key = process.env.MapsAPI; //Bing Maps API key
 app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   //loading model
   console.log("Loading model");
-  const model = await tf.loadLayersModel(model_url);
+  let model = await tf.loadLayersModel(model_url);
   console.log("Loaded model");
 
   //downloading satellite image
