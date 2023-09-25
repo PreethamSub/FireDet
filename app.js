@@ -13,6 +13,7 @@ var corsOptions = {
 }
 
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions))
 
 const model_url = "file://jsmodel.tfjs/model.json"; //path to the model
 const api_key = process.env.MapsAPI; //Bing Maps API key
