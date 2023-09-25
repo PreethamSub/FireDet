@@ -21,7 +21,7 @@ const api_key = process.env.MapsAPI; //Bing Maps API key
 app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   //loading model
   console.log("Loading model");
-  let model = await tf.loadLayersModel(model_url);
+  const model = await tf.loadLayersModel(model_url);
   console.log("Loaded model");
 
   //downloading satellite image
@@ -45,7 +45,7 @@ app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   imageTensor = imageTensor.expandDims(0);
   console.log(`Success: converted local file to a ${imageTensor.shape} tensor`);
   const pred = await model.predict(imageTensor, { batchSize: 4 }).data();
-  model = null;
+  delete model;
   res.json({
     data: pred
   });
