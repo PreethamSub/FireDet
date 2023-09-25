@@ -43,8 +43,10 @@ app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   let imageTensor = tf.node.decodeJpeg(buf);
   imageTensor = imageTensor.expandDims(0);
   console.log(`Success: converted local file to a ${imageTensor.shape} tensor`);
-  res.send({
-    data: await model.predict(imageTensor, { batchSize: 4 }).data(),
+  const pred = await model.predict(imageTensor, { batchSize: 4 }).data();
+  model = null;
+  res.json({
+    data: pred
   });
 });
 
