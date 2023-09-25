@@ -6,10 +6,16 @@ const request = require("request");
 const tf = require("@tensorflow/tfjs-node");
 
 const app = express();
-app.use(cors());
+
+var corsOptions = {
+  origin: 'https://ganesh-dagadi.github.io',
+  optionsSuccessStatus: 200
+}
+
+app.use(cors(corsOptions));
 
 const model_url = "file://jsmodel.tfjs/model.json"; //path to the model
-const api_key = "Agv3yWf-P4aPelrHvZZfvISIRN2zWqCp885IYh2H_HnUpAjvzOhOXJRPiLUef4Gl"; //Bing Maps API key
+const api_key = process.env.MapsAPI; //Bing Maps API key
 
 app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   //loading model
