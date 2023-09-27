@@ -30,7 +30,8 @@ Follow these steps to set up and run the project:
 ## API Endpoints
 The following endpoints are available for making predictions:
 
-GET /api/latitude/logitude/zoom: Send a GET request with input data of a satellite latitude, logitude and zoom factor to get predictions from the Tensorflow.js model.
+GET /api/latitude/logitude/zoom:
+Send a GET request with input data of a satellite latitude, logitude and zoom factor to fetch the satellite image from Bing Maps and get predictions from the Tensorflow.js model.
 
 Example Request:
 
@@ -53,5 +54,10 @@ Example Response:
 ## Model Loading
 Make sure to place your Tensorflow.js model files in the ```./jsmodel.tfjs``` directory.
 
+## Environment variables and CORS headers
+If you are building this app manually, ensure that the Bing Maps API key is available as a process environment variable. You can get more information about Bing Maps [here](https://www.bingmapsportal.com/Application)
+
 ## Live Demo
 The API server app is currently hosted on [Railway](https://railway.app/). The web app API endpoint is live [here](https://firedet-production.up.railway.app/api/13.2989/14.4989/19).
+The frontend web app is hosted on Github pages. You can view the live page [here](https://ganesh-dagadi.github.io/ecotech-frontend/)
+Note: Since the application is hosted on railway's free tier, the app may not be avaiable always. In that case, wait for a few seconds and try again.
