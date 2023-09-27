@@ -46,6 +46,11 @@ app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   console.log(`Success: converted local file to a ${imageTensor.shape} tensor`);
   const pred = await model.predict(imageTensor, { batchSize: 4 }).data();
   delete model;
+  try {
+    if (global.gc) {global.gc();}
+  } catch (e) {
+    console.log(e);
+  }
   res.json({
     data: pred
   });
