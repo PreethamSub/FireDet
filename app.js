@@ -19,9 +19,14 @@ const model_url = "file://jsmodel.tfjs/model.json"; //path to the model
 const api_key = process.env.MapsAPI; //Bing Maps API key
 
 app.get("/api/:lat/:lon/:zoom", async (req, res) => {
+  try {
+    if (global.gc) {global.gc();}
+  } catch (e) {
+    console.log(e);
+  }
   //loading model
   console.log("Loading model");
-  const model = await tf.loadLayersModel(model_url);
+  let model = await tf.loadLayersModel(model_url);
   console.log("Loaded model");
 
   //downloading satellite image
@@ -45,12 +50,7 @@ app.get("/api/:lat/:lon/:zoom", async (req, res) => {
   imageTensor = imageTensor.expandDims(0);
   console.log(`Success: converted local file to a ${imageTensor.shape} tensor`);
   const pred = await model.predict(imageTensor, { batchSize: 4 }).data();
-  delete model;
-  try {
-    if (global.gc) {global.gc();}
-  } catch (e) {
-    console.log(e);
-  }
+  model = null;
   res.json({
     data: pred
   });
