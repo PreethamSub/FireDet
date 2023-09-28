@@ -55,7 +55,7 @@ Example Response:
 Make sure to place your Tensorflow.js model files in the ```./jsmodel.tfjs``` directory.
 
 ## Environment variables and CORS headers
-If you are building this app manually, ensure that the Bing Maps API key is available as a process environment variable. You can get more information about Bing Maps [here](https://www.bingmapsportal.com/Application)
+If you are building this app manually, ensure that the Bing Maps API key is available as a process environment variable. You can get more information about Bing Maps [here](https://www.bingmapsportal.com/Application). Add the appropriate CORS headers to the app if you are hosting frontend and backend on different servers.
 
 ## Live Demo
 The API server app is currently hosted on [Railway](https://railway.app/). The web app API endpoint is live [here](https://firedet-production.up.railway.app/api/13.2989/14.4989/19).
